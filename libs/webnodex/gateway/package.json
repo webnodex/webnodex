@@ -18,10 +18,12 @@
     "tslib": "^2.3.0",
     "express": "^5.1.0",
     "zod": "^4.1.1",
-    "http-proxy-middleware": "^3.0.5"
+    "http-proxy-middleware": "^3.0.5",
+    "signale": "^1.4.0"
   },
   "devDependencies": {
-    "@types/express": "^5.0.3"
+    "@types/express": "^5.0.3",
+    "@types/signale": "^1.4.7"
   },
   "publishConfig": {
     "access": "public"

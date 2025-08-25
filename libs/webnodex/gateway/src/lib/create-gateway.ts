@@ -6,7 +6,7 @@ import {
   type GatewayOptions,
 } from './schemas/gateway.js';
 import { createProxyMiddleware } from 'http-proxy-middleware';
-import z from 'zod';
+import { logger, logZodError } from './logger.js';
 
 /**
  * Creates an API-Gateway
@@ -16,7 +16,7 @@ export const createGateway = (optionsInput: GatewayOptions) => {
   const options = GatewayOptionsSchema.safeParse(optionsInput);
 
   if (!options.success) {
-    console.error(z.prettifyError(options.error));
+    logZodError(options.error);
     throw new Error('Invalid gateway options');
   }
 
@@ -51,7 +51,7 @@ export const createGateway = (optionsInput: GatewayOptions) => {
     const port = options.data.port;
 
     return app.listen(port, () => {
-      console.log(`🚀 Gateway listening on http://localhost:${port}`);
+      logger.info(`Gateway listening on http://localhost:${port}`);
     });
   };
 

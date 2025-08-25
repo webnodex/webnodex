@@ -5,7 +5,9 @@
   "scripts": {},
   "private": true,
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "pino": "^9.9.0",
+    "pino-pretty": "^13.1.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
