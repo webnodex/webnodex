@@ -1,0 +1,28 @@
+# Top-level EditorConfig
+root = true
+
+# Global defaults for all files
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+# Preserve trailing whitespace in Markdown for proper formatting (lists, etc.)
+[*.md]
+trim_trailing_whitespace = false
+
+# Structured data files - consistent 2-space indent
+[*.{json,jsonc,yaml,yml,toml}]
+indent_size = 2
+
+# Shell scripts, Dockerfiles, INI, CFG files - 2 spaces
+[*.{sh,ini,cfg}]
+indent_style = space
+indent_size = 2
+
+# TypeScript and JavaScript family - 2 spaces
+[*.{ts,tsx,js,jsx}]
+indent_size = 2
