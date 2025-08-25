@@ -23,6 +23,7 @@
         "cz-conventional-changelog": "^3.3.0",
         "eslint": "^9.8.0",
         "eslint-config-prettier": "^10.0.0",
+        "graceful-fs": "^4.2.11",
         "jsonc-eslint-parser": "^2.1.0",
         "lefthook": "^1.12.3",
         "nx": "21.4.1",
@@ -30,6 +31,7 @@
         "tslib": "^2.3.0",
         "typescript": "~5.8.2",
         "typescript-eslint": "^8.29.0",
+        "zod": "^4.1.1",
       },
     },
     "libs/webnodex/gateway": {
@@ -1512,6 +1514,8 @@
     "yargs-parser": ["yargs-parser@21.1.1", "", {}, "sha512-tVpsJW7DdjecAiFpbIB1e3qxIQsE6NoPc5/eTdrbbIC4h0LVsWhnoa3g+m2HclBIujHzsxZ4VJVA+GUuc2/LBw=="],
 
     "yocto-queue": ["yocto-queue@0.1.0", "", {}, "sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q=="],
+
+    "zod": ["zod@4.1.1", "", {}, "sha512-SgMZK/h8Tigt9nnKkfJMvB/mKjiJXaX26xegP4sa+0wHIFVFWVlsQGdhklDmuargBD3Hsi3rsQRIzwJIhTPJHA=="],
 
     "@babel/core/semver": ["semver@6.3.1", "", { "bin": { "semver": "bin/semver.js" } }, "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA=="],
 

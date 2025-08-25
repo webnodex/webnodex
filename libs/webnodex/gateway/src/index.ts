@@ -1,1 +1,1 @@
-export { createGateway } from './create-gateway.js';
+export { createGateway } from './lib/create-gateway.js';
