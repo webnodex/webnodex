@@ -1,4 +1,4 @@
-import type { Application, Request, Response } from 'express';
+import type { Application } from 'express';
 import express from 'express';
 import { loadConfig } from './load-config.js';
 import {
@@ -19,17 +19,12 @@ export const createGateway = (optionsInput: GatewayOptions) => {
     throw new Error('Invalid gateway options');
   }
 
+  // start hot reloading config
+  loadConfig(options.data.configPath);
+
   const app: Application = express();
-  const config = loadConfig(options.data.configPath);
 
   app.use(express.json());
-
-  // services stub
-  Object.entries(config.services).forEach(([name, url]) => {
-    app.get(`/api/${name}`, (_req: Request, res: Response) => {
-      res.json({ message: `Proxying request to ${url}` });
-    });
-  });
 
   const start = () => {
     const port = options.data.port;
