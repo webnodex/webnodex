@@ -25,6 +25,7 @@
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "graceful-fs": "^4.2.11",
+    "http-proxy-middleware": "^3.0.5",
     "jsonc-eslint-parser": "^2.1.0",
     "lefthook": "^1.12.3",
     "nx": "21.4.1",

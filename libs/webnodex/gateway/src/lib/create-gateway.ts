@@ -1,10 +1,11 @@
-import type { Application } from 'express';
+import type { Application, NextFunction, Request, Response } from 'express';
 import express from 'express';
-import { loadConfig } from './load-config.js';
+import { getConfig, loadConfig } from './load-config.js';
 import {
   GatewayOptionsSchema,
   type GatewayOptions,
 } from './schemas/gateway.js';
+import { createProxyMiddleware } from 'http-proxy-middleware';
 import z from 'zod';
 
 /**
@@ -25,6 +26,26 @@ export const createGateway = (optionsInput: GatewayOptions) => {
   const app: Application = express();
 
   app.use(express.json());
+
+  // proxy all registered services
+  app.use('/:service', (req: Request, res: Response, next: NextFunction) => {
+    const { service } = req.params;
+    const config = getConfig();
+
+    const target = config.services[service];
+    if (!target) {
+      res.status(404).json({ error: 'Service not found' });
+      return;
+    }
+
+    return createProxyMiddleware({
+      target,
+      changeOrigin: true,
+      pathRewrite: {
+        [`^/${service}`]: '',
+      },
+    })(req, res, next);
+  });
 
   const start = () => {
     const port = options.data.port;
