@@ -1,7 +1,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import { WebnodexConfigSchema, type WebnodexConfig } from './schemas/config.js';
-import z from 'zod';
+import { logger, logZodError } from './logger.js';
 
 let currentConfig: WebnodexConfig | null = null;
 
@@ -18,7 +18,7 @@ const readConfigFile = function (fullPath: string): WebnodexConfig {
   const config = WebnodexConfigSchema.safeParse(configFile);
 
   if (!config.success) {
-    console.error(z.prettifyError(config.error));
+    logZodError(config.error);
     throw new Error('Invalid config file');
   }
 
@@ -43,18 +43,18 @@ export const loadConfig = function (configPath?: string): WebnodexConfig {
 
   // check if config file exists
   if (!fs.existsSync(fullConfigPath)) {
-    console.error(`Config file not found: ${fullConfigPath}`);
+    logger.error(`Config file not found: ${fullConfigPath}`);
     throw new Error(`Config file not found: ${fullConfigPath}`);
   }
 
   try {
     currentConfig = readConfigFile(fullConfigPath);
-    console.log('Config loaded successfully:');
+    logger.info('Config loaded successfully:');
   } catch (error) {
     if (error instanceof Error) {
-      console.error(`Error loading config file: ${error.message}`);
+      logger.error(`Error loading config file: ${error.message}`);
     } else {
-      console.error('Unknown error loading config file', error);
+      logger.error('Unknown error loading config file');
     }
     throw error;
   }
@@ -64,12 +64,12 @@ export const loadConfig = function (configPath?: string): WebnodexConfig {
     try {
       const updatedConfig = readConfigFile(fullConfigPath);
       currentConfig = updatedConfig;
-      console.log('Config file updated successfully:');
+      logger.info('Config file updated successfully:');
     } catch (error) {
       if (error instanceof Error) {
-        console.error(`Error updating config file: ${error.message}`);
+        logger.error(`Error updating config file: ${error.message}`);
       } else {
-        console.error('Unknown error updating config file', error);
+        logger.error('Unknown error updating config file');
       }
       throw error;
     }
@@ -83,6 +83,7 @@ export const loadConfig = function (configPath?: string): WebnodexConfig {
  */
 export const getConfig = function (): WebnodexConfig {
   if (!currentConfig) {
+    logger.error('Config not loaded');
     throw new Error('Config not loaded');
   }
   return currentConfig;
