@@ -19,8 +19,13 @@ export class Gateway {
   }
 
   public start(port: number) {
-    this.app.listen(port, () => {
-      logger.info(`Gateway is running on port ${port}`);
-    });
+    this.app
+      .listen(port, () => {
+        logger.info(`Gateway is running on port ${port}`);
+      })
+      .on('error', (err: NodeJS.ErrnoException) => {
+        logger.error(`Error starting gateway: ${err.message}`);
+        process.exit(1);
+      });
   }
 }
