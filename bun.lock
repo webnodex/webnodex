@@ -37,7 +37,7 @@
         "zod": "^4.1.1",
       },
     },
-    "libs/webnodex/gateway": {
+    "packages/gateway": {
       "name": "@webnodex/gateway",
       "version": "0.0.1",
       "dependencies": {
@@ -600,7 +600,7 @@
 
     "@unrs/resolver-binding-win32-x64-msvc": ["@unrs/resolver-binding-win32-x64-msvc@1.11.1", "", { "os": "win32", "cpu": "x64" }, "sha512-lrW200hZdbfRtztbygyaq/6jP6AKE8qQN2KvPcJ+x7wiD038YtnYtZ82IMNJ69GJibV7bwL3y9FgK+5w/pYt6g=="],
 
-    "@webnodex/gateway": ["@webnodex/gateway@workspace:libs/webnodex/gateway"],
+    "@webnodex/gateway": ["@webnodex/gateway@workspace:packages/gateway"],
 
     "@yarnpkg/lockfile": ["@yarnpkg/lockfile@1.1.0", "", {}, "sha512-GpSwvyXOcOOlV70vbnzjj4fW5xW/FdUF6nQEt1ENy7m4ZCczi1+/buVUPAqmGfqznsORNFzUMjctTIp8a9tuCQ=="],
 

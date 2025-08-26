@@ -19,7 +19,7 @@
     "express": "^5.1.0",
     "zod": "^4.1.1",
     "http-proxy-middleware": "^3.0.5",
-    "signale": "^1.4.0"
+    "pino": "^9.9.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",

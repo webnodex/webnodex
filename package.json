@@ -38,7 +38,7 @@
     "zod": "^4.1.1"
   },
   "workspaces": [
-    "libs/webnodex/*"
+    "packages/*"
   ],
   "config": {
     "commitizen": {
