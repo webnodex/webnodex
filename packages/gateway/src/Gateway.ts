@@ -8,9 +8,15 @@ export class Gateway {
 
   constructor() {
     this.app = express();
+
+    this.settings();
     this.middlewares();
 
     this.app.use('/', router);
+  }
+
+  private settings() {
+    this.app.set('logger', logger);
   }
 
   private middlewares() {
@@ -19,6 +25,8 @@ export class Gateway {
   }
 
   public start(port: number) {
+    const logger = this.app.get('logger');
+
     this.app
       .listen(port, () => {
         logger.info(`Gateway is running on port ${port}`);
