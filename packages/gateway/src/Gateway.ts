@@ -1,7 +1,7 @@
 import type { Application } from 'express';
 import express from 'express';
-import { router } from './routes/index.js';
 import { logger } from './logger/index.js';
+import { router } from './routes/index.js';
 
 export class Gateway {
   private readonly app: Application;
@@ -12,7 +12,7 @@ export class Gateway {
     this.settings();
     this.middlewares();
 
-    this.app.use('/', router);
+    this.routes();
   }
 
   private settings() {
@@ -22,6 +22,10 @@ export class Gateway {
   private middlewares() {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
+  }
+
+  private routes() {
+    this.app.use('/', router);
   }
 
   public start(port: number) {
