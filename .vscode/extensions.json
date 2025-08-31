@@ -1,3 +1,30 @@
 {
-  "recommendations": ["nrwl.angular-console", "esbenp.prettier-vscode"]
+  "recommendations": [
+    "nrwl.angular-console",
+    "esbenp.prettier-vscode",
+    "joshbolduc.commitlint",
+    "vivaxy.vscode-conventional-commits",
+    "editorconfig.editorconfig",
+    "dbaeumer.vscode-eslint",
+    "github.vscode-github-actions",
+    "bierner.github-markdown-preview",
+    "github.vscode-pull-request-github",
+    "visualstudioexptteam.vscodeintellicode",
+    "bierner.markdown-checkbox",
+    "bierner.markdown-emoji",
+    "bierner.markdown-footnotes",
+    "bierner.markdown-preview-github-styles",
+    "bierner.markdown-mermaid",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "rpinski.shebang-snippets",
+    "foxundermoon.shell-format",
+    "timonwong.shellcheck",
+    "redhat.vscode-yaml",
+    "ms-azuretools.vscode-docker",
+    "vscode.yaml",
+    "vscode.docker",
+    "oven.bun-vscode"
+  ],
+  "unwantedRecommendations": ["streetsidesoftware.code-spell-checker"]
 }

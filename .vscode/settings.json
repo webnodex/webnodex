@@ -1,0 +1,153 @@
+{
+  // FORMATTERS
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[markdown]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[shellscript]": { "editor.defaultFormatter": "foxundermoon.shell-format" },
+  "[toml]": { "editor.defaultFormatter": "tamasfe.even-better-toml" },
+  "[yaml]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  },
+
+  // EDITOR BEHAVIOR
+  "editor.acceptSuggestionOnEnter": "smart",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [80],
+  "editor.tabCompletion": "on",
+
+  // FILE SYSTEM & PERFORMANCE
+  "files.watcherExclude": {
+    "**/.git/objects/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true,
+    "**/.turbo/**": true,
+    "**/.nx/**": true,
+    "**/.output/**": true,
+    "**/.next/**": true,
+    "**/.cache/**": true,
+    "**/.vite/**": true,
+    "LICENSE": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.turbo": true,
+    "**/.nx": true,
+    "**/.output": true,
+    "**/.next": true,
+    "**/.cache": true,
+    "**/.vite": true
+  },
+
+  // FILE ASSOCIATIONS (focused on JS/TS + Nx/monorepo files)
+  "files.associations": {
+    "*.js": "javascript",
+    "*.ts": "typescript",
+    "*.json": "json",
+    "*.jsonc": "jsonc",
+    "*.md": "markdown",
+    "*.sh": "shellscript",
+    "*.toml": "toml",
+    "*.yaml": "yaml",
+    "*.yml": "yaml",
+    ".editorconfig": "editorconfig",
+    ".env*": "dotenv",
+    ".gitignore": "gitignore",
+    ".npmrc": "ini",
+    ".nvmrc": "plaintext",
+    ".czrc": "json",
+    ".prettierrc": "json",
+    "tsconfig*.json": "jsonc",
+    "nx.json": "jsonc",
+    "workspace.json": "jsonc",
+    "project.json": "jsonc",
+    "package.json": "jsonc",
+    "pnpm-lock.yaml": "yaml",
+    "pnpm-workspace.yaml": "yaml",
+    "LICENSE": "plaintext"
+  },
+
+  // ESLINT
+  "eslint.debug": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "eslint.useFlatConfig": true,
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "json",
+    "jsonc",
+    "markdown",
+    "yaml"
+  ],
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+
+  // EMOJI & GIT UX
+  "emojisense.languages": {
+    "git-commit": true,
+    "markdown": true,
+    "plaintext": true
+  },
+  "emojisense.markupCompletionsEnabled": true,
+  "emojisense.showOnColon": true,
+  "emojisense.unicodeCompletionsEnabled": true,
+
+  // CONVENTIONAL COMMITS & COMMITLINT
+  "conventionalCommits.emojiFormat": "emoji",
+  "conventionalCommits.gitmoji": true,
+  "conventionalCommits.promptBody": true,
+  "conventionalCommits.promptFooter": true,
+  "conventionalCommits.promptScopes": true,
+  "conventionalCommits.scopes": ["config", "shared"],
+  "conventionalCommits.showNewVersionNotes": true,
+  "conventionalCommits.storeScopesGlobally": false,
+  "commitlint.log.enabled": true,
+
+  // JSON SCHEMAS
+  "json.schemas": [
+    {
+      "fileMatch": ["package.json"],
+      "url": "https://json.schemastore.org/package"
+    },
+    {
+      "fileMatch": ["tsconfig*.json"],
+      "url": "https://json.schemastore.org/tsconfig"
+    },
+    {
+      "fileMatch": ["nx.json", "workspace.json", "project.json"],
+      "url": "https://json.schemastore.org/nx-project"
+    },
+    {
+      "fileMatch": [".prettierrc", ".prettierrc.json"],
+      "url": "https://json.schemastore.org/prettierrc"
+    }
+  ],
+
+  // YAML SCHEMAS
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": [
+      ".github/workflows/*.yml",
+      ".github/workflows/*.yaml"
+    ],
+    "https://json.schemastore.org/pnpm-workspace.json": ["pnpm-workspace.yaml"]
+  },
+
+  // NX
+  "nxConsole.generateAiAgentRules": true,
+
+  // Spell Checking
+  "cSpell.enabled": false,
+}
