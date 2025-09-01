@@ -1,10 +1,10 @@
 {
   "name": "@webnodex/source",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "commit": "cz"
   },
-  "private": true,
   "dependencies": {
     "express": "^5.1.0",
     "pino": "^9.9.0",
@@ -15,9 +15,11 @@
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
     "@eslint/js": "^9.8.0",
+    "@nx/esbuild": "21.4.1",
     "@nx/eslint": "21.4.1",
     "@nx/eslint-plugin": "21.4.1",
     "@nx/js": "21.4.1",
+    "@nx/node": "21.4.1",
     "@nx/vite": "21.4.1",
     "@nx/web": "21.4.1",
     "@swc-node/register": "~1.9.1",
@@ -29,6 +31,7 @@
     "@vitest/ui": "^3.0.0",
     "commitizen": "^4.3.1",
     "cz-conventional-changelog": "^3.3.0",
+    "esbuild": "^0.19.2",
     "eslint": "^9.8.0",
     "eslint-config-prettier": "^10.0.0",
     "jiti": "2.4.2",
@@ -43,7 +46,8 @@
     "vitest": "^3.0.0"
   },
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "apps/*"
   ],
   "config": {
     "commitizen": {
