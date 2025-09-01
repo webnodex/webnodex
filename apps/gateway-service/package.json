@@ -1,47 +1,10 @@
 {
   "name": "@webnodex/gateway-service",
-  "version": "0.2.0",
-  "private": true,
+  "version": "0.0.1",
   "type": "module",
+  "private": true,
   "nx": {
     "targets": {
-      "build": {
-        "executor": "@nx/esbuild:esbuild",
-        "outputs": [
-          "{options.outputPath}"
-        ],
-        "defaultConfiguration": "production",
-        "options": {
-          "platform": "node",
-          "outputPath": "apps/old-gateway/dist",
-          "format": [
-            "esm"
-          ],
-          "bundle": true,
-          "main": "apps/old-gateway/src/main.ts",
-          "tsConfig": "apps/old-gateway/tsconfig.app.json",
-          "assets": [
-            "apps/old-gateway/src/assets"
-          ],
-          "esbuildOptions": {
-            "sourcemap": false,
-            "outExtension": {
-              ".js": ".js"
-            }
-          }
-        },
-        "configurations": {
-          "development": {},
-          "production": {
-            "esbuildOptions": {
-              "sourcemap": false,
-              "outExtension": {
-                ".js": ".js"
-              }
-            }
-          }
-        }
-      },
       "prune-lockfile": {
         "dependsOn": [
           "build"
@@ -49,8 +12,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/old-gateway/dist/package.json",
-          "{workspaceRoot}/apps/old-gateway/dist/bun.lock"
+          "{workspaceRoot}/apps/gateway-service/dist/package.json",
+          "{workspaceRoot}/apps/gateway-service/dist/bun.lock"
         ],
         "options": {
           "buildTarget": "build"
@@ -62,7 +25,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/old-gateway/dist/workspace_modules"
+          "{workspaceRoot}/apps/gateway-service/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -102,9 +65,17 @@
           "prune"
         ]
       }
+    },
+    "release": {
+      "docker": {
+        "repositoryName": "davdevx/gateway-service"
+      }
     }
   },
   "dependencies": {
     "@webnodex/gateway": "^0.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0"
   }
 }

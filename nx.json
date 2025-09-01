@@ -54,6 +54,17 @@
         "buildTarget": "docker:build",
         "runTarget": "docker:run"
       }
+    },
+    {
+      "plugin": "@nx/webpack/plugin",
+      "options": {
+        "buildTargetName": "build",
+        "serveTargetName": "serve",
+        "previewTargetName": "preview",
+        "buildDepsTargetName": "build-deps",
+        "watchDepsTargetName": "watch-deps",
+        "serveStaticTargetName": "serve-static"
+      }
     }
   ],
   "targetDefaults": {
@@ -64,15 +75,16 @@
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["production", "^production"]
+    },
+    "@nx/js:tsc": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
     }
   },
   "release": {
     "projects": ["!@webnodex/source", "packages/*"],
     "projectsRelationship": "independent",
-    "changelog": {
-      "projectChangelogs": false,
-      "workspaceChangelog": false
-    },
     "version": {
       "conventionalCommits": true
     },
@@ -81,6 +93,23 @@
       "stageChanges": true,
       "tag": true,
       "push": true
+    },
+    "changelog": {
+      "projectChangelogs": false,
+      "workspaceChangelog": false
+    },
+    "groups": {
+      "containers": {
+        "projects": ["@webnodex/gateway-service"],
+        "projectsRelationship": "independent",
+        "docker": {
+          "skipVersionActions": true
+        },
+        "changelog": {
+          "projectChangelogs": false,
+          "workspaceChangelog": false
+        }
+      }
     }
   }
 }
