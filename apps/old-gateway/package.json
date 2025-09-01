@@ -13,18 +13,18 @@
         "defaultConfiguration": "production",
         "options": {
           "platform": "node",
-          "outputPath": "apps/gateway-service/dist",
+          "outputPath": "apps/old-gateway/dist",
           "format": [
-            "mjs"
+            "esm"
           ],
-          "bundle": false,
-          "main": "apps/gateway-service/src/main.ts",
-          "tsConfig": "apps/gateway-service/tsconfig.app.json",
+          "bundle": true,
+          "main": "apps/old-gateway/src/main.ts",
+          "tsConfig": "apps/old-gateway/tsconfig.app.json",
           "assets": [
-            "apps/gateway-service/src/assets"
+            "apps/old-gateway/src/assets"
           ],
           "esbuildOptions": {
-            "sourcemap": true,
+            "sourcemap": false,
             "outExtension": {
               ".js": ".js"
             }
@@ -49,8 +49,8 @@
         "cache": true,
         "executor": "@nx/js:prune-lockfile",
         "outputs": [
-          "{workspaceRoot}/apps/gateway-service/dist/package.json",
-          "{workspaceRoot}/apps/gateway-service/dist/bun.lock"
+          "{workspaceRoot}/apps/old-gateway/dist/package.json",
+          "{workspaceRoot}/apps/old-gateway/dist/bun.lock"
         ],
         "options": {
           "buildTarget": "build"
@@ -62,7 +62,7 @@
         ],
         "cache": true,
         "outputs": [
-          "{workspaceRoot}/apps/gateway-service/dist/workspace_modules"
+          "{workspaceRoot}/apps/old-gateway/dist/workspace_modules"
         ],
         "executor": "@nx/js:copy-workspace-modules",
         "options": {
@@ -95,6 +95,12 @@
             "buildTarget": "@webnodex/gateway-service:build:production"
           }
         }
+      },
+      "docker:build": {
+        "dependsOn": [
+          "build",
+          "prune"
+        ]
       }
     }
   },

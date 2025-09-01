@@ -7,7 +7,7 @@
       "path": "./packages/gateway"
     },
     {
-      "path": "./apps/gateway-service"
+      "path": "./apps/old-gateway"
     }
   ]
 }

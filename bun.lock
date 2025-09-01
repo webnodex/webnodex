@@ -13,6 +13,7 @@
         "@commitlint/cli": "^19.8.1",
         "@commitlint/config-conventional": "^19.8.1",
         "@eslint/js": "^9.8.0",
+        "@nx/docker": "21.4.1",
         "@nx/esbuild": "21.4.1",
         "@nx/eslint": "21.4.1",
         "@nx/eslint-plugin": "21.4.1",
@@ -47,14 +48,14 @@
     },
     "apps/gateway-service": {
       "name": "@webnodex/gateway-service",
-      "version": "0.1.0",
+      "version": "0.2.0",
       "dependencies": {
         "@webnodex/gateway": "^0.1.0",
       },
     },
     "packages/gateway": {
       "name": "@webnodex/gateway",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "dependencies": {
         "express": "^5.1.0",
         "pino": "^9.9.0",
