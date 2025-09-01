@@ -1,4 +1,4 @@
 import { z } from 'zod';
-import { ConfigSchema } from '../schemas/config.js';
+import { GatewayConfigSchema } from '../schemas/config.js';
 
-export type Config = z.infer<typeof ConfigSchema>;
+export type GatewayConfig = z.infer<typeof GatewayConfigSchema>;

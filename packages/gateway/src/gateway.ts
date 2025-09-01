@@ -2,15 +2,15 @@ import type { Application } from 'express';
 import express from 'express';
 import type { Logger } from 'pino';
 import pino from 'pino';
-import { ConfigSchema } from './schemas/config.js';
-import type { Config } from './types/config.js';
+import { GatewayConfigSchema } from './schemas/config.js';
+import type { GatewayConfig } from './types/config.js';
 
 export class Gateway {
   private readonly app: Application;
-  private config: Config;
+  private config: GatewayConfig;
   private logger: Logger;
 
-  constructor(config: Config) {
+  constructor(config: GatewayConfig) {
     this.app = express();
     this.logger = this.configureLogger();
     this.config = this.validateConfig(config);
@@ -19,8 +19,8 @@ export class Gateway {
     this.middlewares();
   }
 
-  private validateConfig(config: Config) {
-    const result = ConfigSchema.safeParse(config);
+  private validateConfig(config: GatewayConfig) {
+    const result = GatewayConfigSchema.safeParse(config);
     if (!result.success) {
       this.logger.error(`Invalid config: ${result.error}`);
       process.exit(1);

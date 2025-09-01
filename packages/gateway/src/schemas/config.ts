@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const ConfigSchema = z.object({
+export const GatewayConfigSchema = z.object({
   port: z
     .optional(
       z.union([
