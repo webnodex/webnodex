@@ -98,5 +98,7 @@
       }
     }
   },
-  "dependencies": {}
+  "dependencies": {
+    "@webnodex/gateway": "^0.1.0"
+  }
 }

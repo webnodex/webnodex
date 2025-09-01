@@ -4,6 +4,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../packages/gateway"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ]
