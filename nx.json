@@ -68,6 +68,12 @@
     },
     "version": {
       "conventionalCommits": true
+    },
+    "git": {
+      "commit": true,
+      "stageChanges": true,
+      "tag": true,
+      "push": true
     }
   }
 }

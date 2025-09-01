@@ -2,3 +2,9 @@ commit-msg:
   jobs:
     - name: lint commit msg
       run: bunx commitlint --verbose --edit {1}
+
+pre-commit:
+  jobs:
+    - name: sync projects
+      run: bunx nx sync
+      stage_fixed: true
