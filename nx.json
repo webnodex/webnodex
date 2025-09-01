@@ -21,5 +21,16 @@
         }
       }
     }
-  ]
+  ],
+  "release": {
+    "projects": ["!@webnodex/source", "packages/*"],
+    "projectsRelationship": "independent",
+    "changelog": {
+      "projectChangelogs": false,
+      "workspaceChangelog": false
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  }
 }
