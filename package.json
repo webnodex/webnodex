@@ -56,11 +56,6 @@
     "vitest": "^3.0.0",
     "webpack-cli": "^5.1.4"
   },
-  "workspaces": [
-    "packages/*",
-    "apps/*",
-    "tools/*"
-  ],
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
