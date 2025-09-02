@@ -1,5 +1,14 @@
 packages:
-  - 'packages/*'
-  - 'apps/*'
+  - packages/*
+  - apps/*
 
 nodeLinker: hoisted
+
+onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@swc/core'
+  - core-js-pure
+  - esbuild
+  - lefthook
+  - nx
+  - unrs-resolver
